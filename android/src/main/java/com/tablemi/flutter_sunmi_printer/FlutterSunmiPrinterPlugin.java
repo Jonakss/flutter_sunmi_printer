@@ -102,7 +102,9 @@ public class FlutterSunmiPrinterPlugin implements FlutterPlugin, MethodCallHandl
       int align = call.argument("align");
       flutterSunmiPrinterModule.printImage(base64, align);
       result.success(null);
-    } else {
+    } else if(call.methods.equals(PRINTER_INFO)){
+      result.success("Printer info");
+    }else{
       result.notImplemented();
     }
   }
