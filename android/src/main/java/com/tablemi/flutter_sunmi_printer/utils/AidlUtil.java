@@ -138,8 +138,8 @@ public class AidlUtil {
         List<String> info = new ArrayList<>();
         PackageManager packageManager = context.getPackageManager();
         try {
-            woyouService.getPrintedLength(generateCB(printerCallback1));
-            woyouService.getPrinterFactory(generateCB(printerCallback2));
+            if(printerCallback1 != null) woyouService.getPrintedLength(generateCB(printerCallback1));
+            if(printerCallback2 != null) woyouService.getPrinterFactory(generateCB(printerCallback2));
             info.add(woyouService.getPrinterSerialNo());
             info.add(woyouService.getPrinterModal());
             info.add(woyouService.getPrinterVersion());

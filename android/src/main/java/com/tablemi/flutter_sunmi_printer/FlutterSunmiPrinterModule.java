@@ -12,6 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class FlutterSunmiPrinterModule {
 
   private static boolean isPrinting = false;
@@ -61,6 +65,11 @@ public class FlutterSunmiPrinterModule {
   public void setFontSize(int size) {
     AidlUtil.getInstance().setFontSize(size);
   }
+
+  public String getPrinterStatus(){
+    List<String> list = AidlUtil.getInstance().getPrinterInfo(null, null);
+    return list.get(0);
+  };
 
   public void text(String text, int align, boolean bold, boolean underline, int size, int linesAfter) {
     // Set styles
