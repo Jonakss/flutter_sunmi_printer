@@ -26,6 +26,7 @@ class SunmiPrinter {
   static const String PRINT_TEXT = "printText";
   static const String PRINT_ROW = "printRow";
   static const String PRINT_IMAGE = "printImage";
+  static const String PRINTER_STATUS = "printerStatus";
 
   static const MethodChannel _channel =
       const MethodChannel('flutter_sunmi_printer');
@@ -67,6 +68,11 @@ class SunmiPrinter {
     if (n > 0) {
       await _channel.invokeMethod(EMPTY_LINES, {"n": n});
     }
+  }
+
+  /// Printer status
+  static Future<String> printerStatus() async {
+    return await _channel.invokeMethod(PRINTER_STATUS);
   }
 
   /// Print horizontal full width separator
